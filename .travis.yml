@@ -25,4 +25,11 @@ script:
 
 after_script:
   - sudo docker-compose stop
-  - sudo docker-compose rm -f -v -a
+  # Remove -f=corce -v=volumes
+  - sudo docker-compose rm -fv
+  # Remove containers
+  - sudo docker rm $(sudo docker ps -a -q)
+  # Remove images
+  - sudo docker rmi $(sudo docker images -q)
+  # Remove dangling images (zombie?)
+  - sudo docker rmi $(docker images -aq --filter dangling=true)
