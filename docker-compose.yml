@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  unifi:
+    image: jacobalberty/unifi:latest
+    container_name: unifi
+    restart: always
+    environment:
+      - TZ='Europe/London'
+      - PHP_MAX_FILE_SIZE='5M'
+      - WP_FILENAME='wordpress-4.7-en_GB.tar.gz'
+      - WWW_ROOT='/var/www/html'
+    volumes:
+      - ~/contents/unifi/data:/var/lib/unifi
+      - /var/log:/var/log
+    network_mode: "host"
+    ports:
+        - "8080:8080"
+        - "8443:8443"
+        - "8843:8843"
+        - "8880:8880"
+        - "3478:3478"
+        - "6789:6789"
+        - "10001:10001"
