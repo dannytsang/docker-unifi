@@ -22,3 +22,7 @@ script:
   - sleep 5
   # Check file exists to see if it was successfully started
   - if [ ! -f ~/contents/unifi/data/keystore ]; then exit 1; fi
+
+after_script:
+  - sudo docker-compose stop
+  - sudo docker-compose rm -f -v -a
