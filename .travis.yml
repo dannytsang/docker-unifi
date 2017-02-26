@@ -11,6 +11,6 @@ before_install:
   - sudo chmod +x /usr/local/bin/docker-compose
 
 script:
-  - docker-compose up -d
+  - sudo docker-compose up -d
   - wait 5
   - if [[ ! -f "~/contents/unifi/data:/var/lib/unifi/keystore" ]]; then exit 1; fi
