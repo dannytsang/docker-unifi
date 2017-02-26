@@ -7,9 +7,6 @@ services:
     restart: always
     environment:
       - TZ='Europe/London'
-      - PHP_MAX_FILE_SIZE='5M'
-      - WP_FILENAME='wordpress-4.7-en_GB.tar.gz'
-      - WWW_ROOT='/var/www/html'
     volumes:
       - ~/contents/unifi/data:/var/lib/unifi
       - /var/log:/var/log
