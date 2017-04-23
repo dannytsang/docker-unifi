@@ -25,7 +25,8 @@ Ensure [docker-compose](https://docs.docker.com/compose/install/) is installed. 
 
 
 ## docker engine ##
-1. Use the start.sh script to perform a docker run command to start the container.
+1. Use the start.sh script to perform a docker run command to start the container:
+   1. ./start.sh
 
 # Upgrading Controller #
 Restarting the container doesn't always pick up the latest version. This is usually due to cache or pre-built images of the container so that containers can re-use and / or restart very quickly but doesn't always check for updates. Follow the below if you're trying to upgrade to the latest version.
