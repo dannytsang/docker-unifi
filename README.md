@@ -21,7 +21,7 @@ Ensure [docker-compose](https://docs.docker.com/compose/install/) is installed. 
 
 1. Go to the cloned directory where the doccker-compose.yml file is.
 2. Start the container using the command:
-2a. docker-compose up -d
+   1. docker-compose up -d
 
 
 ## docker engine ##
@@ -33,14 +33,14 @@ Restarting the container doesn't always pick up the latest version. This is usua
 ## docker-compose ##
 1. Go to the cloned directory where the doccker-compose.yml file is.
 2. Stop the container using the command:
-2a. docker-compose stop
-3. Rebuild the image for the container so that it builds the latest version:
-3a. docker-compose build --no-cache
-4. Start the container again:
-4a. docker-compose up -d
+   1. docker-compose stop
+4. Rebuild the image for the container so that it builds the latest version:
+   1. docker-compose build --no-cache
+6. Start the container again:
+   1. docker-compose up -d
 
 ## docker engine ##
 1. Stop and remove container:
-1a. docker stop unifi && docker rm unifi
-2. Restart the container which should rebuild from fresh because the previous stop removes the container:
-2a. ./start.sh
+   1. docker stop unifi && docker rm unifi
+3. Restart the container which should rebuild from fresh because the previous stop removes the container:
+   1. ./start.sh
