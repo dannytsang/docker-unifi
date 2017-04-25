@@ -32,13 +32,9 @@ Ensure [docker-compose](https://docs.docker.com/compose/install/) is installed. 
 Restarting the container doesn't always pick up the latest version. This is usually due to cache or pre-built images of the container so that containers can re-use and / or restart very quickly but doesn't always check for updates. Follow the below if you're trying to upgrade to the latest version.
 
 ## docker-compose ##
-1. Go to the cloned directory where the doccker-compose.yml file is.
+1. Go to the cloned directory where the docker-compose.yml file is.
 2. Stop the container using the command:
-   1. docker-compose stop
-4. Rebuild the image for the container so that it builds the latest version:
-   1. docker-compose build --no-cache
-6. Start the container again:
-   1. docker-compose up -d
+   1. docker-compose up --build -d
 
 ## docker engine ##
 1. Stop and remove container:
