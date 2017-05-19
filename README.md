@@ -20,7 +20,7 @@ Check the above pre-requisites before continuing below.
 Ensure [docker-compose](https://docs.docker.com/compose/install/) is installed. The commands below may require elevated priviledges such as sudo.
 
 1. Go to the cloned directory where the doccker-compose.yml file is.
-2. Start the container using the command:
+2. Start rebuild and start the container(s):
    1. docker-compose up -d
 
 
