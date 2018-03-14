@@ -7,9 +7,12 @@ services:
     restart: always
     environment:
       - TZ='Europe/London'
+      - RUNAS_UID0=false
+      - UNIFI_UID=1000
+      - UNIFI_GID=1000
     volumes:
-      - ~/contents/unifi/data:/var/lib/unifi
-      - /var/log:/var/log
+      - ~/contents/unifi/data:/unifi/data
+      - /var/log:/unifi/log
     network_mode: "host"
     ports:
         - "8080:8080"
