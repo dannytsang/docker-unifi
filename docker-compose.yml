@@ -27,7 +27,7 @@ volumes:
   unifi-data:
     driver: local
     driver_opts:
-      device: ~/contents/unifi/data
+      device: $HOME/contents/unifi/data
       o: bind
   unifi-logs:
     driver: local
