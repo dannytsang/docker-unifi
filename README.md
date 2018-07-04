@@ -6,10 +6,7 @@ N/A
 
 ## Pre-Requisites ##
 Check host volume paths before running the script.
-Check project documentation for volumes required.
-
-TODO:
-change from host volumes to data volumes.
+Check project documentation for volumes required. By default, it expects a directory called "contents/unifi" in your logged in user home directory so that data is maintained even after the container is removed. Automatic backup of settings will also be saved in this directory if enabled on the Unifi controller.
 
 # Starting Controller #
 There are 2 ways of starting the ccontroller using [docker-compose](https://docs.docker.com/compose) or docker (engine). Compose has more pre-requsites to setup but also should make it easier to manage.
@@ -39,3 +36,13 @@ Ensure [docker-compose](https://docs.docker.com/compose/install/) is installed. 
    1. docker stop unifi && docker rm unifi
 3. Restart the container which should rebuild from fresh because the previous stop removes the container:
    1. ./start.sh
+
+# Automatic Update #
+Use a task scheduler like cron to run either the cron.sh or the start.sh to stop and remove existing container then rebuild and restart the container. If there is a new version of the Unifi controller available then this will pull the latest images and run them. Example cron entry to restart every week on Friday at 3am using docker-compose:
+```
+0 3 * * 5 crontab.sh
+```
+or docker
+```
+0 3 * * 5 start.sh
+```
