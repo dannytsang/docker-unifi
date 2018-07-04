@@ -40,7 +40,7 @@ Ensure [docker-compose](https://docs.docker.com/compose/install/) is installed. 
 # Automatic Update #
 Use a task scheduler like cron to run either the cron.sh or the start.sh to stop and remove existing container then rebuild and restart the container. If there is a new version of the Unifi controller available then this will pull the latest images and run them. Example cron entry to restart every week on Friday at 3am using docker-compose:
 ```
-0 3 * * 5 crontab.sh
+0 3 * * 5 cron.sh
 ```
 or docker
 ```
