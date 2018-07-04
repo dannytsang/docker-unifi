@@ -4,13 +4,14 @@ services:
   - docker
 
 env:
-  - DOCKER_VERSION: 1.13.1-0~ubuntu-trusty
-  - COMPOSE_VERSION: 1.11.2
+  - COMPOSE_VERSION: 1.21.2
 
 before_install:
   # Install docker compose
-  - sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  - sudo curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
   - sudo chmod +x /usr/local/bin/docker-compose
+  # Create directory for local volume mount
+  - sudo mkdir -p $HOME/unifi/data
 
 script:
   - sudo docker-compose up -d
@@ -24,8 +25,4 @@ after_script:
   # Remove -f=corce -v=volumes
   - sudo docker-compose rm -fv
   # Remove containers
-  - sudo docker rm $(sudo docker ps -a -q)
-  # Remove images
-  - sudo docker rmi $(sudo docker images -q)
-  # Remove dangling images (zombie?)
-  - sudo docker rmi $(docker images -aq --filter dangling=true)
+  - sudo docker system prune -fa --volumes
