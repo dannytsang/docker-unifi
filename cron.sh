@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo docker-compose pull
-sudo docker-compose stop
-sudo docker-compose rm -f
-sudo docker-compose up -d
+sudo /usr/local/bin/docker-compose pull
+sudo /usr/local/bin/docker-compose down -v
+sudo /usr/local/bin/docker-compose up -d
