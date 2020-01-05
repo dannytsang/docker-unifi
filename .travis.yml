@@ -4,19 +4,21 @@ services:
   - docker
 
 env:
-  - COMPOSE_VERSION: 1.21.2
+  - COMPOSE_VERSION: 1.25.0
 
 before_install:
   # Install docker compose
-  - sudo curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-  - sudo chmod +x /usr/local/bin/docker-compose
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
   # Create directory for local volume mount
   - sudo mkdir -pv $HOME/contents/unifi/data
 
 script:
   - sudo docker-compose up -d
-  # Sleep for 5 seconds to allow it to start up
-  - sleep 5
+  # Sleep for 2 minutes to allow it to start up
+  - sleep 120
   # Check file exists to see if it was successfully started
   - if [ ! -f ~/contents/unifi/data/keystore ]; then exit 1; fi
 
