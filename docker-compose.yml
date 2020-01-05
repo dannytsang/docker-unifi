@@ -27,10 +27,12 @@ volumes:
   unifi-data:
     driver: local
     driver_opts:
+      type: none
       device: $HOME/contents/unifi/data
       o: bind
   unifi-logs:
     driver: local
     driver_opts:
+      type: none
       device: /var/log
       o: bind
