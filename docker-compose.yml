@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   unifi:
-    image: jacobalberty/unifi:stable-6
+    image: jacobalberty/unifi:latest
     container_name: unifi
     restart: always
     environment:
